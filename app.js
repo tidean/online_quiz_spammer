@@ -23,6 +23,10 @@ const feedback = document.getElementById('feedback');
 const questionsAnsweredDisplay = document.getElementById('questionsAnswered');
 const correctAnswersDisplay = document.getElementById('correctAnswers');
 const accuracyDisplay = document.getElementById('accuracy');
+const questionCountSelect = document.getElementById('questionCountSelect');
+
+let sessionQuestions = [];
+let totalQuestionsInSession = 0;
 
 // Load questions data from JSON file
 async function loadQuestionsData() {
@@ -74,6 +78,13 @@ async function init() {
 
     submitBtn.addEventListener('click', submitAnswer);
     nextBtn.addEventListener('click', nextQuestion);
+    if (questionCountSelect) {
+        questionCountSelect.addEventListener('change', () => {
+            if (currentGrade) {
+                selectGrade(currentGrade);
+            }
+        });
+    }
 }
 
 function selectGrade(grade) {
@@ -91,56 +102,58 @@ function selectGrade(grade) {
     questionsAnswered = 0;
     correctAnswers = 0;
     updateStats();
-
-    // Load first question
-    loadRandomQuestion();
+    totalQuestionsInSession = parseInt(questionCountSelect.value, 10) || currentQuestions.length;
+    sessionQuestions = pickRandomQuestions(currentQuestions, totalQuestionsInSession);
+    currentQuestionIndex = 0;
+    loadSessionQuestion();
 }
 
-function loadRandomQuestion() {
-    if (currentQuestions.length === 0) {
-        currentQuestions = [...questionsData[currentGrade]]; // Reload questions
+function pickRandomQuestions(questionsArray, count) {
+    const arr = [...questionsArray];
+    const picked = [];
+    for (let i = 0; i < count && arr.length > 0; i++) {
+        const idx = Math.floor(Math.random() * arr.length);
+        picked.push(arr[idx]);
+        arr.splice(idx, 1);
     }
+    return picked;
+}
 
-    // Pick random question
-    const randomIndex = Math.floor(Math.random() * currentQuestions.length);
-    const question = currentQuestions[randomIndex];
-
-    // Remove question from available pool to avoid immediate repeats
-    currentQuestions.splice(randomIndex, 1);
-
-    // Display question
-    questionNumber.textContent = `Question #${questionsAnswered + 1}`;
-    questionText.innerHTML = question.question; // Use innerHTML to allow MathJax
-
-    // Handle image if present
+function loadSessionQuestion() {
+    if (currentQuestionIndex >= sessionQuestions.length) {
+        // Show score percentage when quiz is complete
+        const accuracy = questionsAnswered > 0 ? Math.round((correctAnswers / questionsAnswered) * 100) : 0;
+        questionText.innerHTML = `Quiz complete!<br>Your score: ${accuracy}%`;
+        questionImage.style.display = 'none';
+        optionsContainer.innerHTML = '';
+        submitBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        questionNumber.textContent = '';
+        return;
+    }
+    const question = sessionQuestions[currentQuestionIndex];
+    questionNumber.textContent = `Question #${currentQuestionIndex + 1} of ${sessionQuestions.length}`;
+    questionText.innerHTML = question.question;
     if (question.image) {
         questionImg.src = question.image;
         questionImage.style.display = 'block';
     } else {
         questionImage.style.display = 'none';
     }
-
-    // Clear previous state
     optionsContainer.innerHTML = '';
     selectedOption = null;
     feedback.style.display = 'none';
     submitBtn.style.display = 'inline-block';
     nextBtn.style.display = 'none';
-
-    // Create option buttons
     question.options.forEach((option, index) => {
         const optionElement = document.createElement('div');
         optionElement.className = 'option';
-        optionElement.innerHTML = option; // Use innerHTML for MathJax in options
+        optionElement.innerHTML = option;
         optionElement.dataset.index = index;
         optionElement.addEventListener('click', () => selectOption(index));
         optionsContainer.appendChild(optionElement);
     });
-
-    // Store current question for checking answer
     window.currentQuestion = question;
-
-    // Render MathJax if present
     if (typeof MathJax !== 'undefined') {
         MathJax.typesetPromise([questionText, optionsContainer]).catch((err) => console.log(err));
     }
@@ -200,8 +213,8 @@ function nextQuestion() {
     document.querySelectorAll('.option').forEach(opt => {
         opt.style.pointerEvents = 'auto';
     });
-
-    loadRandomQuestion();
+    currentQuestionIndex++;
+    loadSessionQuestion();
 }
 
 function updateStats() {
