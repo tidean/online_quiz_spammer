@@ -149,7 +149,10 @@ function loadSessionQuestion() {
         feedback.style.display = 'none';
 
         // Hide question card and show results containers
-        questionCard.style.display = 'none';
+
+        // if commented out, it will show the image and message
+        // questionCard.style.display = 'none';
+
         document.getElementById('resultsTableContainer').style.display = 'block';
         document.getElementById('reviewDetail').style.display = 'none';
 
