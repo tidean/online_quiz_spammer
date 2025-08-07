@@ -123,8 +123,21 @@ function loadSessionQuestion() {
     if (currentQuestionIndex >= sessionQuestions.length) {
         // Show score percentage when quiz is complete
         const accuracy = questionsAnswered > 0 ? Math.round((correctAnswers / questionsAnswered) * 100) : 0;
-        questionText.innerHTML = `Quiz complete!<br>Your score: ${accuracy}%`;
-        questionImage.style.display = 'none';
+        let endMsg = '';
+        let endImg = '';
+        if (accuracy >= 80) {
+            endMsg = 'Very good!';
+            endImg = 'images/good_job.jpg';
+        } else if (accuracy >= 50) {
+            endMsg = 'Keep it up!';
+            endImg = 'images/keep_it_up.jpg';
+        } else {
+            endMsg = 'Try harder!';
+            endImg = 'images/try_harder.jpg';
+        }
+        questionText.innerHTML = `Quiz complete!<br>Your score: ${accuracy}%<br><span style="font-size:1.3em;font-weight:bold;color:#4facfe;">${endMsg}</span>`;
+        questionImage.style.display = 'block';
+        questionImg.src = endImg;
         optionsContainer.innerHTML = '';
         submitBtn.style.display = 'none';
         nextBtn.style.display = 'none';
