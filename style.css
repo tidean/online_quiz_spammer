@@ -1,3 +1,22 @@
+/* Flex row for question count and start button */
+.question-select-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+  gap: 20px;
+  margin: 30px 0 40px 0;
+}
+#startQuizBtn {
+  margin-bottom: 0;
+}
+/* Add extra padding to bottom of selection screen to keep Start Quiz button above the bottom edge */
+#selectionScreen {
+  padding-bottom: 60px;
+}
+/* Add margin below Start Quiz button for spacing */
+#startQuizBtn {
+  margin-bottom: 40px;
+}
 /* Results Table Styling */
 #resultsTableContainer {
   margin-top: 30px;

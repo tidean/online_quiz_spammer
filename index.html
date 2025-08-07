@@ -31,24 +31,31 @@
         <h1>🧮 Math Quiz Spammer</h1>
         <p>Practice makes perfect!</p>
       </div>
-      <div class="grade-selector">
-        <h2 style="margin-bottom: 20px">Select Your Grade</h2>
-        <div class="grade-buttons">
-          <button class="grade-btn" data-grade="3">Grade 3</button>
-          <button class="grade-btn" data-grade="4">Grade 4</button>
-          <button class="grade-btn" data-grade="5">Grade 5</button>
-          <button class="grade-btn" data-grade="6">Grade 6</button>
+      <!-- Selection Screen -->
+      <div id="selectionScreen">
+        <div class="grade-selector">
+          <h2 style="margin-bottom: 20px">Select Your Grade</h2>
+          <div class="grade-buttons">
+            <button class="grade-btn" data-grade="3">Grade 3</button>
+            <button class="grade-btn" data-grade="4">Grade 4</button>
+            <button class="grade-btn" data-grade="5">Grade 5</button>
+            <button class="grade-btn" data-grade="6">Grade 6</button>
+          </div>
+        </div>
+        <div class="question-select-row">
+          <label for="questionCountSelect">Number of Questions:</label>
+          <select id="questionCountSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button id="startQuizBtn" class="btn btn-primary">Start Quiz</button>
         </div>
       </div>
-      <label for="questionCountSelect">Number of Questions:</label>
-      <select id="questionCountSelect">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <div class="quiz-container" id="quizContainer">
+      <!-- Quiz/Review Screen -->
+      <div class="quiz-container" id="quizContainer" style="display: none">
         <div class="stats">
           <div class="stat-item">
             <div class="stat-number" id="questionsAnswered">0</div>
@@ -84,6 +91,9 @@
         <!-- Results Table and Review Detail containers -->
         <div id="resultsTableContainer" style="display: none"></div>
         <div id="reviewDetail" style="display: none"></div>
+        <div style="text-align: center; margin-top: 30px">
+          <button id="backToSelectionBtn" class="btn btn-secondary">Back to Selection</button>
+        </div>
       </div>
     </div>
     <script src="app.js"></script>

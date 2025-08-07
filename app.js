@@ -8,6 +8,9 @@ let currentQuestions = [];
 let questionsData = {};
 
 // DOM elements
+const selectionScreen = document.getElementById('selectionScreen');
+const startQuizBtn = document.getElementById('startQuizBtn');
+const backToSelectionBtn = document.getElementById('backToSelectionBtn');
 const gradeButtons = document.querySelectorAll('.grade-btn');
 const quizContainer = document.getElementById('quizContainer');
 const questionCard = document.getElementById('questionCard');
@@ -69,22 +72,48 @@ async function init() {
     await loadQuestionsData();
 
     // Event listeners
+    let selectedGrade = null;
     gradeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const grade = btn.dataset.grade;
-            selectGrade(grade);
+            selectedGrade = btn.dataset.grade;
+            gradeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         });
+    });
+
+    startQuizBtn.addEventListener('click', () => {
+        if (!selectedGrade) {
+            alert('Please select a grade first!');
+            return;
+        }
+        selectGrade(selectedGrade);
+        selectionScreen.style.display = 'none';
+        quizContainer.style.display = 'block';
+    });
+
+    backToSelectionBtn.addEventListener('click', () => {
+        quizContainer.style.display = 'none';
+        selectionScreen.style.display = 'block';
+        // Reset grade selection
+        gradeButtons.forEach(b => b.classList.remove('active'));
+        selectedGrade = null;
+        // Optionally reset stats and UI
+        questionsAnsweredDisplay.textContent = '0';
+        correctAnswersDisplay.textContent = '0';
+        accuracyDisplay.textContent = '0%';
+        document.getElementById('resultsTableContainer').innerHTML = '';
+        document.getElementById('reviewDetail').innerHTML = '';
+        questionText.innerHTML = 'Loading question...';
+        questionImage.style.display = 'none';
+        optionsContainer.innerHTML = '';
+        submitBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        questionNumber.textContent = '';
+        feedback.style.display = 'none';
     });
 
     submitBtn.addEventListener('click', submitAnswer);
     nextBtn.addEventListener('click', nextQuestion);
-    if (questionCountSelect) {
-        questionCountSelect.addEventListener('change', () => {
-            if (currentGrade) {
-                selectGrade(currentGrade);
-            }
-        });
-    }
 }
 
 function selectGrade(grade) {
