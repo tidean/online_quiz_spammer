@@ -1,0 +1,146 @@
+{
+    "3": [
+        {
+            "question": "What is $7 + 5$?",
+            "options": ["$10$", "$11$", "$12$", "$13$"],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "question": "What is $15 - 8$?",
+            "options": ["$6$", "$7$", "$8$", "$9$"],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "question": "What is $4 \\times 3$?",
+            "options": ["$10$", "$11$", "$12$", "$13$"],
+            "correct": 2,
+            "topic": "multiplication"
+        },
+        {
+            "question": "Sarah has $20$ stickers. She gives $5$ to her friend. How many does she have left?",
+            "options": ["$25$", "$15$", "$10$", "$20$"],
+            "correct": 1,
+            "topic": "word_problems"
+        },
+        {
+            "question": "Look at this pizza. What fraction is shaded?",
+            "image": "images/pizza-half.png",
+            "options": ["$\\frac{1}{4}$", "$\\frac{1}{2}$", "$\\frac{3}{4}$", "$1$"],
+            "correct": 1,
+            "topic": "fractions"
+        },
+        {
+            "question": "What is $9 + 6$?",
+            "options": ["$14$", "$15$", "$16$", "$17$"],
+            "correct": 1,
+            "topic": "addition"
+        }
+    ],
+    "4": [
+        {
+            "question": "What is $24 \\div 6$?",
+            "options": ["$3$", "$4$", "$5$", "$6$"],
+            "correct": 1,
+            "topic": "division"
+        },
+        {
+            "question": "What is $45 + 37$?",
+            "options": ["$80$", "$81$", "$82$", "$83$"],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "question": "What is $\\frac{1}{2} + \\frac{1}{4}$?",
+            "options": ["$\\frac{1}{4}$", "$\\frac{1}{2}$", "$\\frac{3}{4}$", "$1$"],
+            "correct": 2,
+            "topic": "fractions"
+        },
+        {
+            "question": "What is $8 \\times 7$?",
+            "options": ["$54$", "$55$", "$56$", "$57$"],
+            "correct": 2,
+            "topic": "multiplication"
+        },
+        {
+            "question": "Look at this rectangle. What is its area?",
+            "image": "images/rectangle-6x4.png",
+            "options": ["$20$ cm²", "$24$ cm²", "$28$ cm²", "$32$ cm²"],
+            "correct": 1,
+            "topic": "geometry"
+        }
+    ],
+    "5": [
+        {
+            "question": "What is $125 \\div 5$?",
+            "options": ["$20$", "$25$", "$30$", "$35$"],
+            "correct": 1,
+            "topic": "division"
+        },
+        {
+            "question": "What is $2.5 + 1.75$?",
+            "options": ["$4.25$", "$4.5$", "$3.25$", "$3.75$"],
+            "correct": 0,
+            "topic": "decimals"
+        },
+        {
+            "question": "What is $\\frac{3}{4} - \\frac{1}{4}$?",
+            "options": ["$\\frac{1}{4}$", "$\\frac{1}{2}$", "$\\frac{3}{4}$", "$1$"],
+            "correct": 1,
+            "topic": "fractions"
+        },
+        {
+            "question": "What is $12 \\times 15$?",
+            "options": ["$170$", "$175$", "$180$", "$185$"],
+            "correct": 2,
+            "topic": "multiplication"
+        },
+        {
+            "question": "Look at this triangle. What is its area?",
+            "image": "images/triangle-base8-height5.png",
+            "options": ["$20$ cm²", "$40$ cm²", "$13$ cm²", "$80$ cm²"],
+            "correct": 0,
+            "topic": "geometry"
+        }
+    ],
+    "6": [
+        {
+            "question": "What is $15\\%$ of $80$?",
+            "options": ["$10$", "$12$", "$15$", "$20$"],
+            "correct": 1,
+            "topic": "percentages"
+        },
+        {
+            "question": "If $x + 7 = 15$, what is $x$?",
+            "options": ["$6$", "$7$", "$8$", "$9$"],
+            "correct": 2,
+            "topic": "algebra"
+        },
+        {
+            "question": "What is $3.75 \\times 4$?",
+            "options": ["$14$", "$15$", "$16$", "$17$"],
+            "correct": 1,
+            "topic": "decimals"
+        },
+        {
+            "question": "What is $\\frac{2}{5}$ as a decimal?",
+            "options": ["$0.2$", "$0.4$", "$0.6$", "$0.8$"],
+            "correct": 1,
+            "topic": "fractions"
+        },
+        {
+            "question": "Look at this circle diagram. What is the diameter?",
+            "image": "images/circle-radius7.png",
+            "options": ["$12$ cm", "$13$ cm", "$14$ cm", "$15$ cm"],
+            "correct": 2,
+            "topic": "geometry"
+        },
+        {
+            "question": "Solve: $3y - 4 = 11$",
+            "options": ["$y = 4$", "$y = 5$", "$y = 6$", "$y = 7$"],
+            "correct": 1,
+            "topic": "algebra"
+        }
+    ]
+}
