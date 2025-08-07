@@ -129,6 +129,7 @@ function loadSessionQuestion() {
         submitBtn.style.display = 'none';
         nextBtn.style.display = 'none';
         questionNumber.textContent = '';
+        feedback.style.display = 'none';
         return;
     }
     const question = sessionQuestions[currentQuestionIndex];
