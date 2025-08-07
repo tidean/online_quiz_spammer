@@ -135,7 +135,8 @@ function loadSessionQuestion() {
             endMsg = 'Try harder!';
             endImg = 'images/try_harder.jpg';
         }
-        questionText.innerHTML = `Quiz complete!<br>Your score: ${accuracy}%<br><span style="font-size:1.3em;font-weight:bold;color:#4facfe;">${endMsg}</span>`;
+        // Results screen
+        questionText.innerHTML = `Quiz complete!<br>Your score: ${accuracy}%<br><span style=\"font-size:1.3em;font-weight:bold;color:#4facfe;\">${endMsg}</span>`;
         questionImage.style.display = 'block';
         questionImg.src = endImg;
         optionsContainer.innerHTML = '';
@@ -143,7 +144,120 @@ function loadSessionQuestion() {
         nextBtn.style.display = 'none';
         questionNumber.textContent = '';
         feedback.style.display = 'none';
+
+        // Create results table
+        let tableHtml = `<table id='resultsTable' style='width:100%;margin-top:30px;border-collapse:collapse;'>`;
+        tableHtml += `<thead><tr style='background:#f8f9fa;'><th style='padding:10px;border:1px solid #eee;'>#</th><th style='padding:10px;border:1px solid #eee;'>Question</th><th style='padding:10px;border:1px solid #eee;'>Your Answer</th><th style='padding:10px;border:1px solid #eee;'>Correct Answer</th></tr></thead><tbody>`;
+        sessionQuestions.forEach((q, i) => {
+            let userAns = typeof q.userSelected !== 'undefined' ? q.options[q.userSelected] : '-';
+            let correctAns = q.options[q.correct];
+            let rowStyle = '';
+            if (typeof q.userSelected !== 'undefined') {
+                rowStyle = q.userSelected === q.correct ? 'background:#d4edda;' : 'background:#f8d7da;';
+            }
+            tableHtml += `<tr style='cursor:pointer;${rowStyle}' onclick='window.showReviewDetail(${i})'>`;
+            tableHtml += `<td style='padding:10px;border:1px solid #eee;text-align:center;'>${i + 1}</td>`;
+            tableHtml += `<td style='padding:10px;border:1px solid #eee;'>${q.question.replace(/<[^>]+>/g, '')}</td>`;
+            tableHtml += `<td style='padding:10px;border:1px solid #eee;'>${userAns}</td>`;
+            tableHtml += `<td style='padding:10px;border:1px solid #eee;'>${correctAns}</td>`;
+            tableHtml += `</tr>`;
+        });
+        tableHtml += `</tbody></table>`;
+        optionsContainer.innerHTML = tableHtml;
+
+        // Add review detail area
+        if (!document.getElementById('reviewDetail')) {
+            const reviewDetail = document.createElement('div');
+            reviewDetail.id = 'reviewDetail';
+            reviewDetail.style.marginTop = '30px';
+            quizContainer.appendChild(reviewDetail);
+        } else {
+            document.getElementById('reviewDetail').innerHTML = '';
+        }
+
+        // Add global function for showing review detail
+        window.showReviewDetail = function (index) {
+            const q = sessionQuestions[index];
+            let html = `<div style='background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:25px;'>`;
+            html += `<h3 style='margin-bottom:15px;'>Question #${index + 1}</h3>`;
+            html += `<div style='font-size:18px;margin-bottom:20px;'>${q.question}</div>`;
+            if (q.image) {
+                html += `<div style='text-align:center;margin-bottom:20px;'><img src='${q.image}' style='max-width:100%;max-height:250px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.08);'></div>`;
+            }
+            html += `<div style='margin-bottom:10px;'><strong>Your Answer:</strong> <span style='color:${q.userSelected === q.correct ? '#28a745' : '#dc3545'};'>${typeof q.userSelected !== 'undefined' ? q.options[q.userSelected] : '-'}</span></div>`;
+            html += `<div style='margin-bottom:10px;'><strong>Correct Answer:</strong> <span style='color:#28a745;'>${q.options[q.correct]}</span></div>`;
+            html += `<div style='margin-top:20px;'>`;
+            q.options.forEach((opt, idx) => {
+                let optStyle = 'padding:10px 18px;margin:5px 0;border-radius:8px;border:2px solid #e9ecef;display:block;';
+                if (idx === q.correct) optStyle += 'background:#28a745;color:white;border-color:#28a745;';
+                else if (idx === q.userSelected) optStyle += 'background:#dc3545;color:white;border-color:#dc3545;';
+                html += `<span style='${optStyle}'>${opt}</span>`;
+            });
+            html += `</div></div>`;
+            document.getElementById('reviewDetail').innerHTML = html;
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typesetPromise([document.getElementById('reviewDetail')]).catch(() => { });
+            }
+        };
         return;
+        // Show a question in review mode
+        function showReviewQuestion(index) {
+            if (!window.inReviewMode) return;
+            const question = sessionQuestions[index];
+            questionNumber.textContent = `Review: Question #${index + 1} of ${sessionQuestions.length}`;
+            questionText.innerHTML = question.question;
+            if (question.image) {
+                questionImg.src = question.image;
+                questionImage.style.display = 'block';
+            } else {
+                questionImage.style.display = 'none';
+            }
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, idx) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.innerHTML = option;
+                optionElement.dataset.index = idx;
+                // Highlight correct/incorrect answers if answered
+                if (typeof question.userSelected !== 'undefined') {
+                    if (idx === question.correct) {
+                        optionElement.classList.add('correct');
+                    }
+                    if (idx === question.userSelected && question.userSelected !== question.correct) {
+                        optionElement.classList.add('incorrect');
+                    }
+                    if (idx === question.userSelected) {
+                        optionElement.classList.add('selected');
+                    }
+                }
+                optionsContainer.appendChild(optionElement);
+            });
+            feedback.style.display = 'none';
+            submitBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            // Hide review image if not reviewing score
+            questionImage.style.display = question.image ? 'block' : 'none';
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typesetPromise([questionText, optionsContainer]).catch((err) => { });
+            }
+        }
+
+        // Review navigation
+        function reviewQuestion(delta) {
+            if (!window.inReviewMode) return;
+            window.reviewIndex += delta;
+            if (window.reviewIndex < 0) window.reviewIndex = 0;
+            if (window.reviewIndex >= sessionQuestions.length) window.reviewIndex = sessionQuestions.length - 1;
+            showReviewQuestion(window.reviewIndex);
+        }
+
+        function exitReview() {
+            window.inReviewMode = false;
+            const reviewControls = document.getElementById('reviewControls');
+            if (reviewControls) reviewControls.remove();
+            // Optionally, reset to grade selection or quiz start
+            quizContainer.classList.remove('active');
+        }
     }
     const question = sessionQuestions[currentQuestionIndex];
     questionNumber.textContent = `Question #${currentQuestionIndex + 1} of ${sessionQuestions.length}`;
@@ -159,6 +273,12 @@ function loadSessionQuestion() {
     feedback.style.display = 'none';
     submitBtn.style.display = 'inline-block';
     nextBtn.style.display = 'none';
+    // If this is the last question, change nextBtn text to 'Submit'
+    if (currentQuestionIndex === sessionQuestions.length - 1) {
+        nextBtn.textContent = 'Submit';
+    } else {
+        nextBtn.textContent = 'Next Question';
+    }
     question.options.forEach((option, index) => {
         const optionElement = document.createElement('div');
         optionElement.className = 'option';
@@ -192,6 +312,8 @@ function submitAnswer() {
 
     const isCorrect = selectedOption === window.currentQuestion.correct;
     questionsAnswered++;
+    // Save user's answer for review
+    sessionQuestions[currentQuestionIndex].userSelected = selectedOption;
 
     if (isCorrect) {
         correctAnswers++;
