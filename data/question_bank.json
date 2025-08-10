@@ -106,41 +106,334 @@
     ],
     "6": [
         {
-            "question": "What is $15\\%$ of $80$?",
-            "options": ["$10$", "$12$", "$15$", "$20$"],
-            "correct": 1,
-            "topic": "percentages"
+            "question": "Work out: 625 + 374",
+            "options": ["999", "1000", "998", "1001"],
+            "correct": 0,
+            "topic": "addition"
         },
         {
-            "question": "If $x + 7 = 15$, what is $x$?",
-            "options": ["$6$", "$7$", "$8$", "$9$"],
-            "correct": 2,
-            "topic": "algebra"
+            "question": "Work out: 968 - 452",
+            "options": ["516", "515", "517", "514"],
+            "correct": 0,
+            "topic": "subtraction"
         },
         {
-            "question": "What is $3.75 \\times 4$?",
-            "options": ["$14$", "$15$", "$16$", "$17$"],
-            "correct": 1,
-            "topic": "decimals"
-        },
-        {
-            "question": "What is $\\frac{2}{5}$ as a decimal?",
-            "options": ["$0.2$", "$0.4$", "$0.6$", "$0.8$"],
-            "correct": 1,
-            "topic": "fractions"
-        },
-        {
-            "question": "Look at this circle diagram. What is the diameter?",
-            "image": "images/circle-radius7.png",
-            "options": ["$12$ cm", "$13$ cm", "$14$ cm", "$15$ cm"],
-            "correct": 2,
+            "question": "The 2-D shape shown has 5 sides. Name the shape.",
+            "options": ["Pentagon", "Hexagon", "Quadrilateral", "Octagon"],
+            "correct": 0,
             "topic": "geometry"
         },
         {
-            "question": "Solve: $3y - 4 = 11$",
-            "options": ["$y = 4$", "$y = 5$", "$y = 6$", "$y = 7$"],
+            "question": "Work out: 521 x 4",
+            "options": ["2084", "2085", "2083", "2086"],
+            "correct": 0,
+            "topic": "multiplication"
+        },
+        {
+            "question": "Complete the table: Seven hundred and forty five in figures",
+            "options": ["745", "754", "475", "547"],
+            "correct": 0,
+            "topic": "number_representation"
+        },
+        {
+            "question": "Complete the table: Write 3459 in words",
+            "options": ["Three thousand four hundred and fifty nine", "Three thousand four hundred and ninety five", "Three thousand five hundred and forty nine", "Three thousand four hundred and fifty"],
+            "correct": 0,
+            "topic": "number_representation"
+        },
+        {
+            "question": "Reduce $\\frac{6}{9}$ to its lowest term.",
+            "options": ["$\\frac{2}{3}$", "$\\frac{3}{4}$", "$\\frac{1}{2}$", "$\\frac{3}{5}$"],
+            "correct": 0,
+            "topic": "fractions"
+        },
+        {
+            "question": "Convert 8 L into cL.",
+            "options": ["800 cL", "80 cL", "8000 cL", "0.8 cL"],
+            "correct": 0,
+            "topic": "measurement"
+        },
+        {
+            "question": "What fraction of the diagram is shaded?",
+            "options": ["$\\frac{1}{2}$", "$\\frac{1}{4}$", "$\\frac{3}{4}$", "$\\frac{2}{3}$"],
+            "correct": 0,
+            "topic": "fractions"
+        },
+        {
+            "question": "Work out: 3 ÷ 39663",
+            "options": ["13221", "13222", "13220", "13223"],
+            "correct": 0,
+            "topic": "division"
+        },
+        {
+            "question": "Work out: $\\frac{2}{11} + \\frac{5}{11}$",
+            "options": ["$\\frac{7}{11}$", "$\\frac{7}{22}$", "$\\frac{3}{11}$", "$\\frac{5}{11}$"],
+            "correct": 0,
+            "topic": "fractions"
+        },
+        {
+            "question": "Find the value of $4^2$.",
+            "options": ["16", "8", "12", "4"],
+            "correct": 0,
+            "topic": "powers"
+        },
+        {
+            "question": "Which of the following angles is a right angle?",
+            "options": ["90°", "0°", "180°", "270°"],
+            "correct": 0,
+            "topic": "angles"
+        },
+        {
+            "question": "What is the Highest Common Factor (H.C.F.) of 12 and 15?",
+            "options": ["3", "5", "6", "12"],
+            "correct": 0,
+            "topic": "number_theory"
+        },
+        {
+            "question": "Arrange the following numbers in descending order: 4205, 4502, 4250, 4520",
+            "options": ["4520, 4502, 4250, 4205", "4502, 4520, 4250, 4205", "4520, 4250, 4502, 4205", "4205, 4250, 4502, 4520"],
+            "correct": 0,
+            "topic": "ordering"
+        },
+        {
+            "question": "Calculate the size of angle x when one angle is 150°.",
+            "options": ["30°", "150°", "180°", "210°"],
+            "correct": 0,
+            "topic": "angles"
+        },
+        {
+            "question": "Express $\\frac{20}{9}$ as a mixed number.",
+            "options": ["$2\\frac{2}{9}$", "$2\\frac{1}{9}$", "$1\\frac{11}{9}$", "$3\\frac{2}{9}$"],
+            "correct": 0,
+            "topic": "fractions"
+        },
+        {
+            "question": "Which decimal fraction is shown by the arrow on the number line between 2 and 2.3?",
+            "options": ["2.1", "2.15", "2.2", "2.05"],
+            "correct": 0,
+            "topic": "decimals"
+        },
+        {
+            "question": "Write down the place value of 2 in 42563.",
+            "options": ["Thousands", "Hundreds", "Tens", "Units"],
+            "correct": 0,
+            "topic": "place_value"
+        },
+        {
+            "question": "What is the value of 51700 ÷ 10?",
+            "options": ["51", "5170", "51700", "517000"],
             "correct": 1,
+            "topic": "division"
+        },
+        {
+            "question": "(6 × 100) + (2 × 10) + (3 × 1000) + (5 × 1) =",
+            "options": ["3625", "3652", "6235", "6538"],
+            "correct": 0,
+            "topic": "place_value"
+        },
+        {
+            "question": "Which one of the following is a prime number?",
+            "options": ["33", "35", "37", "39"],
+            "correct": 2,
+            "topic": "number_theory"
+        },
+        {
+            "question": "What is the Least Common Multiple (L.C.M.) of 12 and 18?",
+            "options": ["6", "8", "24", "36"],
+            "correct": 3,
+            "topic": "number_theory"
+        },
+        {
+            "question": "What is $\\frac{2}{5}$ expressed as a percentage?",
+            "options": ["20%", "25%", "40%", "50%"],
+            "correct": 2,
+            "topic": "percentages"
+        },
+        {
+            "question": "Which one of the following is an obtuse angle?",
+            "options": ["Acute angle", "Right angle", "Obtuse angle", "Reflex angle"],
+            "correct": 2,
+            "topic": "angles"
+        },
+        {
+            "question": "Which number is 100 more than 32128?",
+            "options": ["31128", "32028", "32228", "33128"],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "question": "What is the direction of R?",
+            "options": ["East", "North West", "North East", "West"],
+            "correct": 2,
+            "topic": "direction"
+        },
+        {
+            "question": "A rectangle has length 6 cm and width 4 cm. What is the area of the rectangle?",
+            "options": ["10 cm²", "12 cm²", "20 cm²", "24 cm²"],
+            "correct": 3,
+            "topic": "geometry"
+        },
+        {
+            "question": "Which one of the following shows the time 13:25?",
+            "options": ["Clock A", "Clock B", "Clock C", "Clock D"],
+            "correct": 1,
+            "topic": "time"
+        },
+        {
+            "question": "Work out: $\\frac{5}{8} ÷ \\frac{15}{32}$",
+            "options": ["$\\frac{4}{3}$", "$\\frac{3}{4}$", "$\\frac{5}{6}$", "$\\frac{75}{128}$"],
+            "correct": 0,
+            "topic": "fractions"
+        },
+        {
+            "question": "A bus can carry a maximum of 50 passengers. What is the maximum number of passengers which 12 such buses can carry?",
+            "options": ["600", "500", "620", "580"],
+            "correct": 0,
+            "topic": "multiplication"
+        },
+        {
+            "question": "Susan sleeps for $8\\frac{1}{2}$ hours daily. For how many hours does she sleep in one week?",
+            "options": ["59.5 hours", "60 hours", "58.5 hours", "61 hours"],
+            "correct": 0,
+            "topic": "fractions"
+        },
+        {
+            "question": "Two boxes weigh 10 kg 800 g altogether. One box weighs 5 kg 950 g. Find the mass of the other box.",
+            "options": ["4 kg 850 g", "4 kg 750 g", "5 kg 850 g", "4 kg 950 g"],
+            "correct": 0,
+            "topic": "measurement"
+        },
+        {
+            "question": "Safira buys 1 L of juice. She gives 0.2 L to Monique and 0.35 L to Dev. How much juice does she have left?",
+            "options": ["0.45 L", "0.55 L", "0.35 L", "0.65 L"],
+            "correct": 0,
+            "topic": "decimals"
+        },
+        {
+            "question": "Find the perimeter of the figure with sides 3 cm, 15 cm, 11 cm, 10 cm.",
+            "options": ["39 cm", "29 cm", "49 cm", "35 cm"],
+            "correct": 0,
+            "topic": "geometry"
+        },
+        {
+            "question": "A shopkeeper buys 150 kg of rice. She puts them in small packets. Each small packet weighs 1250 g. How many packets does she get?",
+            "options": ["120", "125", "130", "115"],
+            "correct": 0,
+            "topic": "division"
+        },
+        {
+            "question": "£1 = Rs 54. Ivano changes £500 into rupees. He spends 60% of the money. How much money is left?",
+            "options": ["Rs 10800", "Rs 12000", "Rs 16200", "Rs 11000"],
+            "correct": 0,
+            "topic": "percentages"
+        },
+        {
+            "question": "Annick buys a mobile phone for Rs 7800. She sells it and makes a profit of 10%. Calculate the selling price.",
+            "options": ["Rs 8580", "Rs 8500", "Rs 8600", "Rs 8480"],
+            "correct": 0,
+            "topic": "percentages"
+        },
+        {
+            "question": "A cuboid has length 12 cm, width 9 cm and height 6 cm. How many cubes of side 3 cm can fit in the cuboid?",
+            "options": ["24", "20", "18", "16"],
+            "correct": 0,
+            "topic": "geometry"
+        },
+        {
+            "question": "Draw the 4th term of the pattern shown.",
+            "options": ["5×5 grid", "4×5 grid", "5×4 grid", "6×4 grid"],
+            "correct": 0,
+            "topic": "patterns"
+        },
+        {
+            "question": "How many dots are there in the 5th term of the pattern?",
+            "options": ["30", "25", "35", "20"],
+            "correct": 0,
+            "topic": "patterns"
+        },
+        {
+            "question": "Rectangle P has length 20 cm and width 10 cm. Triangle Q is equilateral. The perimeter of P is four times the perimeter of Q. Calculate the length of one side of triangle Q.",
+            "options": ["20 cm", "15 cm", "25 cm", "10 cm"],
+            "correct": 0,
+            "topic": "geometry"
+        },
+        {
+            "question": "Plot points A(1,1), B(1,6) and C(5,1) on the graph.",
+            "options": ["Correct plotting", "Incorrect plotting", "Missing point", "Wrong coordinates"],
+            "correct": 0,
+            "topic": "coordinates"
+        },
+        {
+            "question": "What is the special name given to triangle ABC?",
+            "options": ["Right-angled", "Equilateral", "Isosceles", "Scalene"],
+            "correct": 0,
+            "topic": "geometry"
+        },
+        {
+            "question": "Calculate the area of triangle ABC.",
+            "options": ["10 units²", "8 units²", "12 units²", "15 units²"],
+            "correct": 0,
+            "topic": "geometry"
+        },
+        {
+            "question": "Jim's snack is open from 08:00-15:30 and 17:00-21:00. For how many hours does it remain open daily?",
+            "options": ["11.5 hours", "12 hours", "10.5 hours", "11 hours"],
+            "correct": 0,
+            "topic": "time"
+        },
+        {
+            "question": "Simone is 11 years old. Monique is 7 years younger than Simone. Pierre is 10 years older than Simone. What is the average age?",
+            "options": ["12 years", "13 years", "11 years", "14 years"],
+            "correct": 0,
+            "topic": "statistics"
+        },
+        {
+            "question": "Who collected the least number of shells according to the pictogram?",
+            "options": ["Samuel", "Ricardo", "Jennifer", "Riya"],
+            "correct": 0,
+            "topic": "statistics"
+        },
+        {
+            "question": "Find the ratio of shells collected by Samuel to Jennifer in simplest form.",
+            "options": ["3:4", "4:3", "2:3", "3:2"],
+            "correct": 0,
+            "topic": "ratios"
+        },
+        {
+            "question": "What is the total number of shells collected?",
+            "options": ["84", "88", "80", "76"],
+            "correct": 0,
+            "topic": "statistics"
+        },
+        {
+            "question": "What is the size of the angle representing Ricardo's shells on a pie chart?",
+            "options": ["72°", "60°", "90°", "80°"],
+            "correct": 0,
+            "topic": "statistics"
+        },
+        {
+            "question": "A rectangular tank is 80 cm long, 60 cm wide and 50 cm high. Half is filled with water. Find the volume of water.",
+            "options": ["120000 cm³", "240000 cm³", "60000 cm³", "180000 cm³"],
+            "correct": 0,
+            "topic": "geometry"
+        },
+        {
+            "question": "All water from the tank is poured into 12L buckets. How many buckets can be filled completely?",
+            "options": ["10", "8", "12", "15"],
+            "correct": 0,
+            "topic": "measurement"
+        },
+        {
+            "question": "4 pens and 6 pencils cost Rs 172. 2 pens and 2 pencils cost Rs 74. Find the cost of 1 pencil.",
+            "options": ["Rs 11", "Rs 15", "Rs 10", "Rs 12"],
+            "correct": 0,
             "topic": "algebra"
+        },
+        {
+            "question": "A bus leaves village X at 06:45 and reaches village Y at 09:15 at 60 km/h. How long to return at 50 km/h?",
+            "options": ["3 hours", "2.5 hours", "3.5 hours", "4 hours"],
+            "correct": 0,
+            "topic": "speed_distance_time"
         }
     ]
 }
